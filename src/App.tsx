@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ImageUpload from './components/ImageUpload';
 import DefaultImageSelector from './components/DefaultImageSelector';
 import TemperatureSelector from './components/TemperatureSelector';
@@ -52,6 +52,9 @@ function App() {
     try {
       // Use uploaded image if available, otherwise use selected default image
       const imageToUse = uploadedImage || selectedDefaultImage;
+      if (!imageToUse) {
+        throw new Error('No image selected');
+      }
       const result = await uploadImageAndPredict(imageToUse, selectedTemperature);
       setPrediction(result);
       setShowFeedback(true);
@@ -68,7 +71,7 @@ function App() {
 
     try {
       const feedbackData: FeedbackData = {
-        image: uploadedImage || selectedDefaultImage,
+        image: (uploadedImage || selectedDefaultImage)!,
         temperature: selectedTemperature,
         prediction: prediction.shelfLife,
         feedback: feedbackText,

@@ -59,7 +59,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload, uploadedImage 
       URL.revokeObjectURL(previewUrl);
     }
     setPreviewUrl('');
-    onImageUpload(null as any);
+    onImageUpload(null as unknown as File);
   };
 
   return (
