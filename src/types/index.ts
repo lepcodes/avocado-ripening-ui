@@ -1,7 +1,9 @@
+export type RipenessState = 'unripe' | 'ripe' | 'overripe';
+
 export interface PredictionResponse {
   shelfLife: number;
   confidence: number;
-  ripeness: 'unripe' | 'ripe' | 'overripe';
+  ripeness: RipenessState;
   tips: string[];
   timestamp: string;
 }

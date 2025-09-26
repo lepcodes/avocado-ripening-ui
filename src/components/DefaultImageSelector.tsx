@@ -17,32 +17,18 @@ interface DefaultImageSelectorProps {
 const defaultImages: DefaultImage[] = [
   {
     id: 'unripe-avocado',
-    url: 'https://images.pexels.com/photos/557659/pexels-photo-557659.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+    url: 'https://res.cloudinary.com/dugutgkim/image/upload/v1758855012/unripe_avocado_kvargt.jpg',
     name: 'Unripe Avocado',
     description: 'Hard, bright green avocado',
     ripeness: 'unripe'
   },
   {
-    id: 'ripe-avocado',
-    url: 'https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
-    name: 'Perfect Ripe Avocado',
-    description: 'Ready to eat, dark green',
-    ripeness: 'ripe'
-  },
-  {
-    id: 'very-ripe-avocado',
-    url: 'https://images.pexels.com/photos/2228553/pexels-photo-2228553.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
-    name: 'Very Ripe Avocado',
-    description: 'Soft, darker skin',
-    ripeness: 'ripe'
-  },
-  {
     id: 'overripe-avocado',
-    url: 'https://images.pexels.com/photos/1656666/pexels-photo-1656666.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+    url: 'https://res.cloudinary.com/dugutgkim/image/upload/v1758855011/overripe_avocado_gzx8jm.jpg',
     name: 'Overripe Avocado',
-    description: 'Very soft, brown spots',
+    description: 'Very soft, dark brown avocado',
     ripeness: 'overripe'
-  }
+  },
 ];
 
 const DefaultImageSelector: React.FC<DefaultImageSelectorProps> = ({ 
@@ -51,9 +37,9 @@ const DefaultImageSelector: React.FC<DefaultImageSelectorProps> = ({
 }) => {
   const getRipenessColor = (ripeness: string) => {
     switch (ripeness) {
-      case 'unripe': return 'bg-red-100 text-red-700';
-      case 'ripe': return 'bg-green-100 text-green-700';
-      case 'overripe': return 'bg-orange-100 text-orange-700';
+      case 'unripe': return 'bg-green-100 text-green-700';
+      case 'ripe': return 'bg-orange-100 text-orange-700';
+      case 'overripe': return 'bg-red-100 text-red-700';
       default: return 'bg-gray-100 text-gray-700';
     }
   };
@@ -69,7 +55,7 @@ const DefaultImageSelector: React.FC<DefaultImageSelectorProps> = ({
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="flex gap-6 justify-center mt-6">
         {defaultImages.map((image) => (
           <div
             key={image.id}
@@ -84,7 +70,7 @@ const DefaultImageSelector: React.FC<DefaultImageSelectorProps> = ({
               <img
                 src={image.url}
                 alt={image.name}
-                className="w-full h-full object-cover"
+                className="w-60 h-60 object-cover"
                 loading="lazy"
               />
               

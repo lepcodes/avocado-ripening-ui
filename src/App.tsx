@@ -56,6 +56,7 @@ function App() {
         throw new Error('No image selected');
       }
       const result = await uploadImageAndPredict(imageToUse, selectedTemperature);
+      console.log('Prediction result:', result);
       setPrediction(result);
       setShowFeedback(true);
     } catch (err) {
@@ -100,7 +101,7 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-12">
           <div className="flex items-center justify-center mb-4">
             <Leaf className="w-12 h-12 text-emerald-600 mr-3" />
             <h1 className="text-4xl font-bold text-gray-800">

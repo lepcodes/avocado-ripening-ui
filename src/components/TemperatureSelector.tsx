@@ -8,19 +8,19 @@ interface TemperatureSelectorProps {
 
 const temperatureOptions = [
   { 
-    value: '20°C', 
+    value: 'T20', 
     label: '20°C', 
     description: 'Room temperature storage',
     color: 'text-red-600'
   },
   { 
-    value: '10°C', 
+    value: 'T10', 
     label: '10°C', 
     description: 'Cool storage (pantry)',
     color: 'text-blue-600'
   },
   { 
-    value: 'Ambient', 
+    value: 'Tam', 
     label: 'Ambient Temperature', 
     description: 'Current room conditions',
     color: 'text-green-600'
