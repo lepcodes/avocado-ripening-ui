@@ -46,15 +46,14 @@ export const uploadImageAndPredict = async (
   // Handle both File objects and default image objects
   if (image instanceof File) {
     console.log('Uploading image file:', image.name);
-    formData.append('image_file', image); 
+    formData.append('image_files', image); 
   } else {
     // For default images, handle the specific URL/name logic (if the backend supports this)
     // NOTE: The curl command only shows file upload. If the backend doesn't support 
     // passing imageUrl/imageName, you may need to adjust this logic.
-    formData.append('image_url', image.url);
-    formData.append('image_name', image.name);
+    formData.append('image_urls', image.url);
   }
-  formData.append('storage_condition', temperature);
+  formData.append('storage_conditions', temperature);
 
   try {
     const response = await fetch(endpointUrl, { // Use the new URL
